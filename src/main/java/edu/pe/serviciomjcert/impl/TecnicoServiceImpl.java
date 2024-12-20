@@ -17,4 +17,6 @@ public class TecnicoServiceImpl extends ICRUDServiceImpl <Tecnico, Integer> impl
     protected JpaRepository<Tecnico, Integer> getRepo() {
         return repo;
     }
+
+
 }

@@ -3,14 +3,18 @@ package edu.pe.serviciomjcert.integrales.impl;
 import edu.pe.serviciomjcert.impl.TecnicoServiceImpl;
 import edu.pe.serviciomjcert.model.Tecnico;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+
+//
 @SpringBootTest
 @Transactional
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -19,69 +23,68 @@ class TecnicoServiceImplIntegrationTest {
     @Autowired
     private TecnicoServiceImpl tecnicoService;
 
+    private Tecnico tecnicoPrueba;
+
+    @BeforeEach
+    void setUp() {
+        // Definir los valores comunes para los tests
+        tecnicoPrueba = new Tecnico();
+        tecnicoPrueba.setNombre("nombreprueba");
+        tecnicoPrueba.setApellido("apellidoprueba");
+        tecnicoPrueba.setFoto("fotoprueba");
+        tecnicoPrueba.setDni("22222222");
+        tecnicoPrueba.setDireccion("Calleprueba");
+        tecnicoPrueba.setCorreo("juan.prueba@example.com");
+    }
+
     @Test
     void testRegistrar() throws Exception {
-        // Arrange
-        Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Juan");
-        tecnico.setApellido("Pérez");
-        tecnico.setFoto("foto.jpg");
-        tecnico.setDni("12345678");
-        tecnico.setDireccion("Av. Siempre Viva 123");
-        tecnico.setCorreo("juan.perez@example.com");
-
         // Act
-        Tecnico registrado = tecnicoService.registrar(tecnico);
+        Tecnico registrado = tecnicoService.registrar(tecnicoPrueba);
 
         // Assert
         Assertions.assertNotNull(registrado.getIdTecnico());
-        Assertions.assertEquals("Juan", registrado.getNombre());
-        Assertions.assertEquals("Pérez", registrado.getApellido());
-        Assertions.assertEquals("12345678", registrado.getDni());
-        Assertions.assertEquals("juan.perez@example.com", registrado.getCorreo());
+        Assertions.assertEquals("nombreprueba", registrado.getNombre());
+        Assertions.assertEquals("apellidoprueba", registrado.getApellido());
+        Assertions.assertEquals("fotoprueba", registrado.getFoto());
+        Assertions.assertEquals("22222222", registrado.getDni());
+        Assertions.assertEquals("Calleprueba", registrado.getDireccion());
+        Assertions.assertEquals("juan.prueba@example.com", registrado.getCorreo());
     }
 
     @Test
     void testModificar() throws Exception {
-        // Arrange
-        Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Juan");
-        tecnico.setApellido("Pérez");
-        tecnico.setFoto("foto.jpg");
-        tecnico.setDni("12345678");
-        tecnico.setDireccion("Av. Siempre Viva 123");
-        tecnico.setCorreo("juan.perez@example.com");
-        Tecnico registrado = tecnicoService.registrar(tecnico);
+        // Registrar el técnico
+        Tecnico registrado = tecnicoService.registrar(tecnicoPrueba);
+
+        // Modificar el técnico
+        registrado.setNombre("Carlos");
+        registrado.setApellido("Lopez");
+        registrado.setCorreo("carlos.lopez@example.com");
 
         // Act
-        registrado.setNombre("Carlos");
-        registrado.setApellido("Gómez");
         Tecnico modificado = tecnicoService.modificar(registrado);
 
         // Assert
         Assertions.assertEquals("Carlos", modificado.getNombre());
-        Assertions.assertEquals("Gómez", modificado.getApellido());
+        Assertions.assertEquals("Lopez", modificado.getApellido());
+        Assertions.assertEquals("carlos.lopez@example.com", modificado.getCorreo());
     }
 
     @Test
     void testListar() throws Exception {
-        // Arrange
-        Tecnico tecnico1 = new Tecnico();
-        tecnico1.setNombre("Juan");
-        tecnico1.setApellido("Pérez");
-        tecnico1.setFoto("foto.jpg");
-        tecnico1.setDni("12345678");
-        tecnico1.setDireccion("Av. Siempre Viva 123");
-        tecnico1.setCorreo("juan.perez@example.com");
-        tecnicoService.registrar(tecnico1);
+        // Registrar el técnico
+        Tecnico registrado = tecnicoService.registrar(tecnicoPrueba);
 
+        // Crear otro técnico para probar listar más de uno
         Tecnico tecnico2 = new Tecnico();
-        tecnico2.setNombre("Carlos");
-        tecnico2.setApellido("Gómez");
-        tecnico2.setFoto("foto.jpg");
-        tecnico2.setDni("87654321");
-        tecnico2.setDireccion("Av. Falsa 456");
-        tecnico2.setCorreo("carlos.gomez@example.com");
+        tecnico2.setNombre("nombreprueba2");
+        tecnico2.setApellido("apellidoprueba2");
+        tecnico2.setFoto("fotoprueba2");
+        tecnico2.setDni("22222223");
+        tecnico2.setDireccion("Calleprueba2");
+        tecnico2.setCorreo("juan.prueba2@example.com");
+
         tecnicoService.registrar(tecnico2);
 
         // Act
@@ -94,38 +97,25 @@ class TecnicoServiceImplIntegrationTest {
 
     @Test
     void testListarPorId() throws Exception {
-        // Arrange
-        Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Juan");
-        tecnico.setApellido("Pérez");
-        tecnico.setFoto("foto.jpg");
-        tecnico.setDni("12345678");
-        tecnico.setDireccion("Av. Siempre Viva 123");
-        tecnico.setCorreo("juan.perez@example.com");
-        Tecnico registrado = tecnicoService.registrar(tecnico);
+        // Registrar el técnico
+        Tecnico registrado = tecnicoService.registrar(tecnicoPrueba);
 
         // Act
         Tecnico result = tecnicoService.listarPorId(registrado.getIdTecnico());
 
         // Assert
         Assertions.assertNotNull(result);
-        Assertions.assertEquals("Juan", result.getNombre());
-        Assertions.assertEquals("Pérez", result.getApellido());
-        Assertions.assertEquals("12345678", result.getDni());
-        Assertions.assertEquals("juan.perez@example.com", result.getCorreo());
+        Assertions.assertEquals("nombreprueba", result.getNombre());
+        Assertions.assertEquals("apellidoprueba", result.getApellido());
+        Assertions.assertEquals("22222222", result.getDni());
+        Assertions.assertEquals("Calleprueba", result.getDireccion());
+        Assertions.assertEquals("juan.prueba@example.com", result.getCorreo());
     }
 
     @Test
     void testEliminar() throws Exception {
-        // Arrange
-        Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Eliminar");
-        tecnico.setApellido("Test");
-        tecnico.setFoto("foto.jpg");
-        tecnico.setDni("00000000");
-        tecnico.setDireccion("Dirección eliminada");
-        tecnico.setCorreo("eliminar.test@example.com");
-        Tecnico registrado = tecnicoService.registrar(tecnico);
+        // Registrar el técnico
+        Tecnico registrado = tecnicoService.registrar(tecnicoPrueba);
 
         // Act
         tecnicoService.eliminar(registrado.getIdTecnico());
@@ -135,4 +125,6 @@ class TecnicoServiceImplIntegrationTest {
         Assertions.assertNull(result);
     }
 }
+
+
 

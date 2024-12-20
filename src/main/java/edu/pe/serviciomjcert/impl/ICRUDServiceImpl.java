@@ -34,4 +34,8 @@ public abstract class ICRUDServiceImpl <T,ID> implements ICRUD<T,ID> {
     public void eliminar(ID id) throws Exception {
         getRepo().deleteById(id);
     }
+
+    //busque nombres que comiencen a , b
+
+
 }

@@ -58,17 +58,17 @@ class CitaServiceImplIntegrationTest {
         Cliente cliente = new Cliente();
         cliente.setNombre("Juan");
         cliente.setApellido("Pérez");
-        cliente.setCorreo("juan.perez@example.com");
+        cliente.setCorreo("juan.perezz@example.com");
         cliente.setDireccion("Calle 123");
-        cliente.setDni("12312312");
-        cliente.setTelefono("987654321");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
         solicitud.setNombre("Servicio Test");
         solicitud.setApellido("Test");
-        solicitud.setCorreo("servicio.test@example.com");
-        solicitud.setTelefono("987654321");
+        solicitud.setCorreo("servicio.tests@example.com");
+        solicitud.setTelefono("999999999");
         solicitud.setTipoServicio("Instalación");
         solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
@@ -77,11 +77,11 @@ class CitaServiceImplIntegrationTest {
         Tecnico tecnico = new Tecnico();
         tecnico.setNombre("Carlos");
         tecnico.setApellido("Méndez");
-        tecnico.setCorreo("carlos.mendez@example.com");
-        tecnico.setDni("87654321");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
         tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
         Cita cita = new Cita();
@@ -104,32 +104,32 @@ class CitaServiceImplIntegrationTest {
     void testModificar() throws Exception {
         // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Pedro");
-        cliente.setApellido("Sánchez");
-        cliente.setCorreo("pedro.sanchez@example.com");
-        cliente.setDireccion("Av. Central 12");
-        cliente.setDni("98765432");
-        cliente.setTelefono("999999999");
+        cliente.setNombre("Juan");
+        cliente.setApellido("Pérez");
+        cliente.setCorreo("juan.perezz@example.com");
+        cliente.setDireccion("Calle 123");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Reparación Test");
+        solicitud.setNombre("Servicio Test");
         solicitud.setApellido("Test");
-        solicitud.setCorreo("reparacion.test@example.com");
+        solicitud.setCorreo("servicio.tests@example.com");
         solicitud.setTelefono("999999999");
-        solicitud.setTipoServicio("Reparación");
-        solicitud.setDescripcion("Reparación de equipo");
+        solicitud.setTipoServicio("Instalación");
+        solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Luis");
-        tecnico.setApellido("Gómez");
-        tecnico.setCorreo("luis.gomez@example.com");
-        tecnico.setDni("45678901");
-        tecnico.setDireccion("Calle Test 123");
+        tecnico.setNombre("Carlos");
+        tecnico.setApellido("Méndez");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
         Cita cita = new Cita();
@@ -152,32 +152,32 @@ class CitaServiceImplIntegrationTest {
     void testListar() throws Exception {
         // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Laura");
-        cliente.setApellido("Gómez");
-        cliente.setCorreo("laura.gomez@example.com");
-        cliente.setDireccion("Calle 789");
-        cliente.setDni("12345678");
-        cliente.setTelefono("911223344");
+        cliente.setNombre("Juan");
+        cliente.setApellido("Pérez");
+        cliente.setCorreo("juan.perezz@example.com");
+        cliente.setDireccion("Calle 123");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Mantenimiento Test");
+        solicitud.setNombre("Servicio Test");
         solicitud.setApellido("Test");
-        solicitud.setCorreo("mantenimiento.test@example.com");
-        solicitud.setTelefono("911223344");
-        solicitud.setTipoServicio("Mantenimiento");
-        solicitud.setDescripcion("Mantenimiento de equipo");
+        solicitud.setCorreo("servicio.tests@example.com");
+        solicitud.setTelefono("999999999");
+        solicitud.setTipoServicio("Instalación");
+        solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Andrés");
-        tecnico.setApellido("Ramírez");
-        tecnico.setCorreo("andres.ramirez@example.com");
-        tecnico.setDni("11223344");
-        tecnico.setDireccion("Av. Ejemplo 321");
+        tecnico.setNombre("Carlos");
+        tecnico.setApellido("Méndez");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
         Cita cita1 = new Cita();
@@ -207,33 +207,34 @@ class CitaServiceImplIntegrationTest {
     @Test
     void testListarPorId() throws Exception {
         // Arrange
+        // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Ricardo");
-        cliente.setApellido("Hernández");
-        cliente.setCorreo("ricardo.hernandez@example.com");
-        cliente.setDireccion("Av. Ejemplo 99");
-        cliente.setDni("55667788");
-        cliente.setTelefono("924567890");
+        cliente.setNombre("Juan");
+        cliente.setApellido("Pérez");
+        cliente.setCorreo("juan.perezz@example.com");
+        cliente.setDireccion("Calle 123");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Inspección Test");
+        solicitud.setNombre("Servicio Test");
         solicitud.setApellido("Test");
-        solicitud.setCorreo("inspeccion.test@example.com");
-        solicitud.setTelefono("924567890");
-        solicitud.setTipoServicio("Inspección");
-        solicitud.setDescripcion("Inspección de equipos");
+        solicitud.setCorreo("servicio.tests@example.com");
+        solicitud.setTelefono("999999999");
+        solicitud.setTipoServicio("Instalación");
+        solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Rosa");
-        tecnico.setApellido("Martínez");
-        tecnico.setCorreo("rosa.martinez@example.com");
-        tecnico.setDni("11223345");
-        tecnico.setDireccion("Calle Ejemplo 10");
+        tecnico.setNombre("Carlos");
+        tecnico.setApellido("Méndez");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
         Cita cita = new Cita();
@@ -255,33 +256,34 @@ class CitaServiceImplIntegrationTest {
     @Test
     void testEliminar() throws Exception {
         // Arrange
+        // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Esteban");
-        cliente.setApellido("Lopez");
-        cliente.setCorreo("esteban.lopez@example.com");
-        cliente.setDireccion("Calle Final 100");
-        cliente.setDni("99887766");
-        cliente.setTelefono("934567890");
+        cliente.setNombre("Juan");
+        cliente.setApellido("Pérez");
+        cliente.setCorreo("juan.perezz@example.com");
+        cliente.setDireccion("Calle 123");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Revisión Test");
+        solicitud.setNombre("Servicio Test");
         solicitud.setApellido("Test");
-        solicitud.setCorreo("revision.test@example.com");
-        solicitud.setTelefono("934567890");
-        solicitud.setTipoServicio("Revisión");
-        solicitud.setDescripcion("Revisión de equipo");
+        solicitud.setCorreo("servicio.tests@example.com");
+        solicitud.setTelefono("999999999");
+        solicitud.setTipoServicio("Instalación");
+        solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Julia");
-        tecnico.setApellido("González");
-        tecnico.setCorreo("julia.gonzalez@example.com");
-        tecnico.setDni("22334455");
-        tecnico.setDireccion("Calle 123");
+        tecnico.setNombre("Carlos");
+        tecnico.setApellido("Méndez");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
         Cita cita = new Cita();
@@ -304,33 +306,34 @@ class CitaServiceImplIntegrationTest {
     @Test
     void testRegistrarTransaccional() throws Exception {
         // Arrange
+        // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Mario");
-        cliente.setApellido("Ruiz");
-        cliente.setCorreo("mario.ruiz@example.com");
-        cliente.setDireccion("Av. Principal 100");
-        cliente.setDni("12345678");
-        cliente.setTelefono("944556677");
+        cliente.setNombre("Juan");
+        cliente.setApellido("Pérez");
+        cliente.setCorreo("juan.perezz@example.com");
+        cliente.setDireccion("Calle 123");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Instalación Servicio");
-        solicitud.setApellido("Servicio");
-        solicitud.setCorreo("instalacion.servicio@example.com");
-        solicitud.setTelefono("944556677");
+        solicitud.setNombre("Servicio Test");
+        solicitud.setApellido("Test");
+        solicitud.setCorreo("servicio.tests@example.com");
+        solicitud.setTelefono("999999999");
         solicitud.setTipoServicio("Instalación");
-        solicitud.setDescripcion("Instalación de nuevo equipo");
+        solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Luis");
-        tecnico.setApellido("Mora");
-        tecnico.setCorreo("luis.mora@example.com");
-        tecnico.setDni("87654321");
-        tecnico.setDireccion("Calle Técnica 456");
+        tecnico.setNombre("Carlos");
+        tecnico.setApellido("Méndez");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
         TipoServicio tipoServicio = new TipoServicio();
@@ -366,33 +369,34 @@ class CitaServiceImplIntegrationTest {
     @Test
     void testBuscarCita() throws Exception {
         // Arrange
+        // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Ana");
+        cliente.setNombre("Juan");
         cliente.setApellido("Pérez");
-        cliente.setCorreo("ana.perez@example.com");
-        cliente.setDireccion("Av. Libertad 100");
-        cliente.setDni("98765432");
-        cliente.setTelefono("933322111");
+        cliente.setCorreo("juan.perezz@example.com");
+        cliente.setDireccion("Calle 123");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Reparación Servicio");
-        solicitud.setApellido("Servicio");
-        solicitud.setCorreo("reparacion.servicio@example.com");
-        solicitud.setTelefono("933322111");
-        solicitud.setTipoServicio("Reparación");
-        solicitud.setDescripcion("Reparación de equipo");
+        solicitud.setNombre("Servicio Test");
+        solicitud.setApellido("Test");
+        solicitud.setCorreo("servicio.tests@example.com");
+        solicitud.setTelefono("999999999");
+        solicitud.setTipoServicio("Instalación");
+        solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Roberto");
-        tecnico.setApellido("García");
-        tecnico.setCorreo("roberto.garcia@example.com");
-        tecnico.setDni("55554433");
-        tecnico.setDireccion("Calle Taller 78");
+        tecnico.setNombre("Carlos");
+        tecnico.setApellido("Méndez");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
         Cita cita = new Cita();
@@ -404,13 +408,13 @@ class CitaServiceImplIntegrationTest {
         citaService.registrar(cita);
 
         // Act
-        List<Cita> citasEncontradas = citaService.buscarCita("98765432", "Ana Pérez");
+        List<Cita> citasEncontradas = citaService.buscarCita("11111111", "Juan Pérez");
 
         // Assert
         Assertions.assertFalse(citasEncontradas.isEmpty());
         Assertions.assertEquals(1, citasEncontradas.size());
-        Assertions.assertEquals("98765432", citasEncontradas.get(0).getCliente().getDni());
-        Assertions.assertEquals("Ana Pérez", citasEncontradas.get(0).getCliente().getNombre() + " " + citasEncontradas.get(0).getCliente().getApellido());
+        Assertions.assertEquals("11111111", citasEncontradas.get(0).getCliente().getDni());
+        Assertions.assertEquals("Juan Pérez", citasEncontradas.get(0).getCliente().getNombre() + " " + citasEncontradas.get(0).getCliente().getApellido());
     }
 
 
@@ -419,33 +423,34 @@ class CitaServiceImplIntegrationTest {
     @Test
     void testBuscarFecha() throws Exception {
         // Arrange
+        // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Sofía");
-        cliente.setApellido("Martínez");
-        cliente.setCorreo("sofia.martinez@example.com");
-        cliente.setDireccion("Calle Ejemplo 90");
-        cliente.setDni("33322211");
-        cliente.setTelefono("920011223");
+        cliente.setNombre("Juan");
+        cliente.setApellido("Pérez");
+        cliente.setCorreo("juan.perezz@example.com");
+        cliente.setDireccion("Calle 123");
+        cliente.setDni("11111111");
+        cliente.setTelefono("222222222");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Inspección Servicio");
-        solicitud.setApellido("Servicio");
-        solicitud.setCorreo("inspeccion.servicio@example.com");
-        solicitud.setTelefono("920011223");
-        solicitud.setTipoServicio("Inspección");
-        solicitud.setDescripcion("Inspección de equipos");
+        solicitud.setNombre("Servicio Test");
+        solicitud.setApellido("Test");
+        solicitud.setCorreo("servicio.tests@example.com");
+        solicitud.setTelefono("999999999");
+        solicitud.setTipoServicio("Instalación");
+        solicitud.setDescripcion("Instalación de equipo");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Martín");
-        tecnico.setApellido("Serrano");
-        tecnico.setCorreo("martin.serrano@example.com");
-        tecnico.setDni("66778899");
-        tecnico.setDireccion("Av. Ejemplo 200");
+        tecnico.setNombre("Carlos");
+        tecnico.setApellido("Méndez");
+        tecnico.setCorreo("carlos.mendezz@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("Av. Real 456");
         tecnico.setFoto("foto.jpg");
-        tecnico.setCorreo("juan.perez@example.com");
+        tecnico.setCorreo("juan.cars@example.com");
         tecnicoRepo.save(tecnico);
 
 

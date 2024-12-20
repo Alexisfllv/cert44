@@ -60,31 +60,31 @@ public class CitatipoServicioImplIntegracionTest {
     void testListarTiposDeServicioPorCita() throws Exception {
         // Arrange
         Cliente cliente = new Cliente();
-        cliente.setNombre("Laura");
-        cliente.setApellido("Gómez");
-        cliente.setCorreo("laura.gomez@example.com");
-        cliente.setDireccion("Calle 789");
-        cliente.setDni("12345678");
-        cliente.setTelefono("911223344");
+        cliente.setNombre("nombrec");
+        cliente.setApellido("apellidoc");
+        cliente.setCorreo("laura.correoc@example.com");
+        cliente.setDireccion("Callec");
+        cliente.setDni("11111111");
+        cliente.setTelefono("999999999");
         clienteRepo.save(cliente);
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setNombre("Mantenimiento Test");
-        solicitud.setApellido("Test");
-        solicitud.setCorreo("mantenimiento.test@example.com");
-        solicitud.setTelefono("911223344");
-        solicitud.setTipoServicio("Mantenimiento");
-        solicitud.setDescripcion("Mantenimiento de equipo");
+        solicitud.setNombre("nombres");
+        solicitud.setApellido("apellidos");
+        solicitud.setCorreo("mantenimiento.correos@example.com");
+        solicitud.setTelefono("999999999");
+        solicitud.setTipoServicio("tiposervicios");
+        solicitud.setDescripcion("descripcions");
         solicitud.setEstado("Pendiente");
         solicitudRepo.save(solicitud);
 
         Tecnico tecnico = new Tecnico();
-        tecnico.setNombre("Andrés");
-        tecnico.setApellido("Ramírez");
-        tecnico.setCorreo("andres.ramirez@example.com");
-        tecnico.setDni("11223344");
-        tecnico.setDireccion("Av. Ejemplo 321");
-        tecnico.setFoto("foto.jpg");
+        tecnico.setNombre("nombret");
+        tecnico.setApellido("apellidot");
+        tecnico.setCorreo("andres.correot@example.com");
+        tecnico.setDni("88888888");
+        tecnico.setDireccion("DireccionT");
+        tecnico.setFoto("fotot");
         tecnicoRepo.save(tecnico);
 
         Cita cita = new Cita();
